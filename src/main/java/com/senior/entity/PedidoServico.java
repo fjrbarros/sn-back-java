@@ -15,13 +15,10 @@ import lombok.Data;
 public class PedidoServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pedido_servico")
     private long idPedidoServico;
-    @Column(name = "nome_usuario", nullable = false)
-    private String nomeUsuario;
     @Column(name = "qtd_hora", nullable = false)
     private int qtdHora;
-    @Column(nullable = false)
+    @Column(name = "id_servico", nullable = false)
     private long idServico;
-    @Column(nullable = false)
-    private long idPedido;
 }
