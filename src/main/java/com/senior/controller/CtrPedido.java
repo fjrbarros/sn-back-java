@@ -3,6 +3,7 @@ package com.senior.controller;
 import java.util.List;
 
 import com.senior.entity.Pedido;
+import com.senior.entity.dto.PedidoResponse;
 import com.senior.service.ServPedido;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,11 @@ public class CtrPedido {
     }
 
     @PostMapping("/salvarPedido")
-    public ResponseEntity<Pedido> salvarPedido(@RequestBody Pedido pedido) {
+    public ResponseEntity<PedidoResponse> salvarPedido(@RequestBody Pedido pedido) {
 
-        Pedido newPedido = servPedido.salvarPedido(pedido);
+        PedidoResponse pedidoResponse = servPedido.salvarPedido(pedido);
 
-        return new ResponseEntity<Pedido>(newPedido, HttpStatus.CREATED);
+        return new ResponseEntity<PedidoResponse>(pedidoResponse, HttpStatus.CREATED);
     }
 
     @GetMapping("/recuperarPedidos")

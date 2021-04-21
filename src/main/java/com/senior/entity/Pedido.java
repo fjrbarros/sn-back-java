@@ -1,15 +1,16 @@
 package com.senior.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -31,8 +32,7 @@ public class Pedido {
     @Column(name = "usuario", length = 100, nullable = false)
     private String usuario;
 
-    @ManyToMany
-    @JoinTable(name = "pedido_servico", joinColumns = { @JoinColumn(name = "id_pedido") }, inverseJoinColumns = {
-            @JoinColumn(name = "id_servico") })
-    private List<Servico> servicos;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pedido")
+    private List<PedidoServico> pedidoServicos = new ArrayList<>();
 }

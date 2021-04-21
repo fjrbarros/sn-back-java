@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -19,6 +21,8 @@ public class PedidoServico {
     private long idPedidoServico;
     @Column(name = "qtd_hora", nullable = false)
     private int qtdHora;
-    @Column(name = "id_servico", nullable = false)
-    private long idServico;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_servico", nullable = false)
+    private Servico servico;
 }
