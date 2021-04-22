@@ -47,7 +47,7 @@ public class ServPedido {
 
         pedidoResponse.setPedido(newPedido);
 
-        String strResp = String.format("Valor total do pedido: R$ %.2f <br> Percentual de lucro: %d%%", valorTotal,
+        String strResp = String.format("Valor total do pedido: R$ %.2f Percentual de lucro: %d%%", valorTotal,
                 percLucro);
 
         pedidoResponse.setResposta(strResp);
